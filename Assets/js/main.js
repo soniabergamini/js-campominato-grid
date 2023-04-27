@@ -1,0 +1,68 @@
+// FUNCTIONS
+
+// Click on Play Button
+function startGame() {
+
+    console.log("click on start btn")
+
+    // Variables
+    const gameLevel = Number(document.getElementById('level').value);
+    const gridClasses = ['dFlex', 'justyCenter', 'alignCenter', 'fWrap', 'border'];
+    const boxClasses = ['dFlex', 'justyCenter', 'alignCenter', 'pad1em', 'border', 'box', 'cPointer'];
+    const grid = createElement("div", "grid", `${gridClasses.join(" ")}`, "");
+
+    // Set gameSize for Grid
+    if (gameLevel == 81) {
+        gameSize = 9;
+    } else if (gameLevel == 49) {
+        gameSize = 7;
+    }
+
+    // Create Grid Container | Alternative Solution
+    // const grid = document.createElement('div');
+    // grid.setAttribute("id", "grid");
+    // grid.classList.add('dFlex', 'justyCenter', 'alignCenter', 'fWrap', 'border');
+    // gridSec.append(grid);
+
+    // Add Boxes inside Grid 
+    for (let i = 0; i < gameLevel; i++) {
+
+        // Create numbers from 1 to 100
+        let stamp = i + 1
+
+        // Create 100 Boxes
+        box = createElement("div", "", `${boxClasses.join(" ")}`, `${stamp}`);
+        box.style.width = `calc( 100% / ${gameSize})`;
+        box.style.height = `calc( 100% / ${gameSize})`;
+
+        // Add Boxes inside Grid
+        grid.append(box);
+
+    }
+
+    // Add Grid with Boxes inside DOM
+    gridSec.append(grid);
+
+}
+
+// Create HTML Elements
+function createElement(tag, id, classes, content) {
+
+    const element = document.createElement(tag);
+    element.setAttribute("id", id);
+    element.setAttribute("class", classes);
+    element.innerText = (content);
+    console.log(element);
+
+    return element;
+
+}
+
+// VARIABLES
+const btnPlay = document.getElementById('playGame');
+const gridSec = document.getElementById('gridSec');
+let gameSize = 10;
+let box;
+
+// INIT
+btnPlay.addEventListener("click", startGame);

@@ -36,13 +36,13 @@ img {max-width: 100%;}
 .cPointer      {cursor: pointer;}
 .textAlignCent {text-align: center;}
 .pad1em        {padding: 1em;}
-.border        {border: 1px solid black;}
+.border        {border: 1px solid var(--green);}
 .w100Perc      {width: 100%;}
 
 /* HEADER STYLE */
 header {
     height: var(--height);
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -54,6 +54,13 @@ header img {
 h1 {
     color: var(--green);
     font-weight: 900;
+}
+
+header select {
+    border: .5px solid var(--green);
+    font-size: .875rem;
+    padding: .2em .3em;
+    margin: 0 1em 0 .3em;
 }
 
 button {
@@ -74,6 +81,41 @@ main {
     background-color: rgb(34, 28, 33);
     color: antiquewhite;
     height: calc(100vh - var(--height) - (var(--height) / 2) );
+    padding: 2em;
+    overflow-y: scroll;
+}
+
+main > section {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#grid {
+    width: 500px;
+    height: 500px;
+}
+
+.box {
+    font-size: .94rem;
+
+    /* with 49 boxes
+    width: calc(100% / 7);
+    height: calc(100% / 7); */
+
+    /* with 81 boxes
+    width: calc(100% / 9);
+    height: calc(100% / 9); */
+
+    /* with 100 boxes
+    width: calc(100% / 10);
+    height: calc(100% / 10); */
+}
+
+.box:hover {
+    color: var(--green);
+    font-size: larger;
+    background-color: rgb(66, 62, 66);
+    font-family: 'Rubik Microbe', cursive;
 }
 
 /* FOOTER STYLE */

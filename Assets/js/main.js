@@ -3,9 +3,10 @@
 // Click on Play Button
 function startGame() {
 
-    console.log("click on start btn")
+    console.log("click on start game btn");
 
     // Variables
+    gameON = true;
     const gameLevel = Number(document.getElementById('level').value);
     const gridClasses = ['dFlex', 'justyCenter', 'alignCenter', 'fWrap', 'border'];
     const boxClasses = ['dFlex', 'justyCenter', 'alignCenter', 'pad1em', 'border', 'box', 'cPointer'];
@@ -38,10 +39,22 @@ function startGame() {
         // Add Boxes inside Grid
         grid.append(box);
 
+        // Click on single Boxes
+        box.addEventListener("click", function() {
+
+            this.classList.toggle('boxClicked');
+            console.log("Click on box number:", stamp);
+
+        })
+
     }
 
     // Add Grid with Boxes inside DOM
+    gridSec.innerHTML = "";
     gridSec.append(grid);
+
+    // Chage Button Text
+    btnPlay.innerText = "NEW GAME";
 
 }
 
@@ -52,7 +65,7 @@ function createElement(tag, id, classes, content) {
     element.setAttribute("id", id);
     element.setAttribute("class", classes);
     element.innerText = (content);
-    console.log(element);
+    // console.log(element);
 
     return element;
 
@@ -63,6 +76,7 @@ const btnPlay = document.getElementById('playGame');
 const gridSec = document.getElementById('gridSec');
 let gameSize = 10;
 let box;
+let gameON = false;
 
-// INIT
+// EVENTS
 btnPlay.addEventListener("click", startGame);

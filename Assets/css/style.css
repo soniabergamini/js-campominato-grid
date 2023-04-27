@@ -118,6 +118,11 @@ main > section {
     font-family: 'Rubik Microbe', cursive;
 }
 
+.boxClicked,
+.box:active {
+    background-color: var(--blue);
+}
+
 /* FOOTER STYLE */
 footer {
     height: var(--height) / 2;
